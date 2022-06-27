@@ -1,0 +1,183 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: #AEDBCE;
+    
+    
+}
+
+.main-content{
+    padding:4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.content{
+    padding:10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#hello{
+    font-size: 3rem;
+}
+
+.about-content{
+
+    padding:5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.text{
+
+    display:block;
+    line-height: 300%;
+}
+
+.profile-image{
+    border-radius: 20%;
+}
+
+.about-title{
+   
+    padding-top: 80px;
+    text-align: center;
+}
+
+hr{
+    width:50%;
+    margin:auto;
+    margin-top: 17px;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns: 200px 200px;
+    gap:20px;
+}
+
+.gallery{
+   display:flex;
+   align-items: center;
+   flex-wrap: wrap;
+   justify-content:space-evenly;
+   padding:5%;
+    
+}
+
+.image{
+    padding: 20px;
+}
+
+.image:hover {
+    transform: scale(1.5);
+}
+
+.contact-section{
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+}
+
+.contact-info{
+    padding-top: 2%;    
+    line-height: 300%;
+    font-size: 20px;
+}
+
+.icon{
+    padding: 10px;
+}
+
+.contact-form{
+    display: inline-block;
+    align-self: flex-end;
+    margin-top: 7rem;
+}
+
+.contact-form form input{
+    margin-top:1rem;
+    padding:1.1rem 7rem;
+    border-radius: 5rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.contact-form form input:focus{
+    background: #fff;
+}
+
+
+.contact-form form button{
+
+    padding:.4rem 5rem;
+    background:#333;
+    color:#fff;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    border-radius: 5rem;
+    margin-left:7rem;
+    cursor: pointer;
+}
+
+.contact-form form button:hover{
+    background: #fff;
+    color:#333;
+}
+
+#firstbox{
+    margin-top:0;
+}
+
+@media screen and (max-width: 600px){
+
+    .main-content{
+        display:flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .about-content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .skills{
+        padding-left: 40px;
+        padding-top: 40px;
+    }
+
+    .about-title{
+        padding-top: 50px;
+    }
+
+    .contact-form{
+        margin-top: 4rem;
+        margin-left:2rpm;
+        margin-right:2rpm;
+        
+    }
+
+    .contact-info{
+        padding:5%;
+    }
+
+    .contact-form form input{
+        padding:0.8rem 5rem;
+    }
+    
+    .contact-form form button{
+        margin-left:4rem;
+    }
+
+    .about-text{
+        margin-left:18px;
+    }
+}
