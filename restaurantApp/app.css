@@ -1,0 +1,115 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+    
+}
+
+.blur-effect :not(.popup){
+    filter: blur(2px);
+}
+
+.main{
+    display:flex;
+    align-items: row;
+    
+}
+
+.tables{
+    flex-grow: 1;
+    padding-top:2rem;
+}
+
+.vertical-line{
+
+    border-left: 3px solid black;
+    height: 80rem;
+    margin-top: 2rem;
+            
+}
+
+.menu{
+    flex-grow: 3;
+    padding-top:2rem;
+}
+
+.title{
+    text-align: center;
+}
+
+.table{
+    padding: 1rem;
+}
+
+#search-menu{
+    padding:0.5rem;
+    margin:1rem;
+    margin-right:1 rem;
+    width:90%;
+}
+
+#search-tables{
+    padding:0.5rem;
+    margin:1rem;
+    width:90%;
+}
+
+.menu-item{
+    padding: 1rem;
+    font-size: 20px;
+}
+
+.popup{
+    position: absolute;
+    
+    left:50%;
+    width:800px;
+    height:500px;
+    background-color:#fff;
+    transform: translate(-50%,-50%) scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup{
+    top:50%;
+    transform: translate(-50%,-50%) scale(1);
+    visibility: visible;
+
+}
+
+.popup-nav{
+        display:flex;
+        background-color: blue;
+        color:#fff;
+        padding:20px;
+    }
+
+.close{
+    align-self: flex-end;
+    padding-left: 35rem;
+    cursor:pointer;
+}
+
+.active-table{
+    background: rgb(221, 149, 14);
+}
+
+table{
+    width: 100%;
+}
+
+tr{
+    margin:2rem;
+}
+
+#generateBill{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+}
+
+/* #totalCost{
+    position: absolute;
+    bottom :1rem;
+    right: 27rem;
+} */
