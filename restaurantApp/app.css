@@ -79,9 +79,10 @@
 
 .popup-nav{
         display:flex;
-        background-color: blue;
+        background-color: rgb(6, 6, 143);
         color:#fff;
         padding:20px;
+        font-size: 18px;
     }
 
 .close{
@@ -95,7 +96,10 @@
 }
 
 table{
-    width: 100%;
+    width: 92%;
+    margin: 25px;
+    border-collapse: separate;
+    border-spacing: 0 1em;
 }
 
 tr{
@@ -108,8 +112,12 @@ tr{
     right:10px;
 }
 
-/* #totalCost{
+#totalCost{
     position: absolute;
     bottom :1rem;
-    right: 27rem;
-} */
+    right: 33rem;
+}
+
+thead{
+    padding: 20px;
+}

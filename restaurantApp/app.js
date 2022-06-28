@@ -5,22 +5,37 @@ function menuItem(name,price,type,quantity){
     this.quantity=quantity;
 }
 
-function table(tableName,items){
-
+function tables(totalCost,noOfItems){
+    this.totalCost=totalCost;
+    this.noOfItems=noOfItems;
 }
+
 var itemsList=[]
 
 var draggableItems=[];
 
-var tables=[];
+var tablesList=[];
 
-for(let i=0;i<3;i++){
-    tables[i]={
-        "table1":{
-            
-        }
-    }
+tablesList.push(new tables(0,0));
+tablesList.push(new tables(0,0));
+tablesList.push(new tables(0,0));
+
+let tabls=""
+
+for(let i=0;i<tablesList.length;i++){
+    tabls+=`<div class="card table" ondrop="dragDrop()">
+        <div class="card-body">
+            <h3 class="card-title">Table-${i+1}</h3>
+            <div class="card-text">
+                Rs:<span>${tablesList[i].totalCost}</span>
+                | Total items:<span id="items">${tablesList[i].noOfItems}</span>
+            </div>
+        </div>
+    </div>`;
+
 }
+
+document.getElementById("table-item").innerHTML=tabls;
 
 itemsList.push(new menuItem("chicken biryani",280.00,"main course",1));
 itemsList.push(new menuItem("chicken kabab",250.00,"starter",1));
@@ -104,14 +119,12 @@ function dragDrop(){
     let noOfItems=placingTable.getElementsByTagName("span")[1].innerHTML;
 
     let itemCost=draggedItem.getElementsByTagName("p")[1].innerHTML
-    console.log(itemCost);
 
     totalCost=Number(totalCost)+Number(itemCost);
     noOfItems=Number(noOfItems)+1;
 
     placingTable.getElementsByTagName("span")[0].innerHTML=totalCost;
     placingTable.getElementsByTagName("span")[1].innerHTML=noOfItems;
-
 
     var str = placingTable.getElementsByTagName("h3")[0].innerHTML;
     var matches = str.match(/(\d+)/);
@@ -142,7 +155,6 @@ function dragDrop(){
 //search menu items
 function searchItems(value){
 
-    console.log("value :",value);
     value=value.toLowerCase();
 
     let menuItems=document.getElementById("menu-items").getElementsByClassName("card");
@@ -161,8 +173,6 @@ function searchItems(value){
 
 //search tables
 function searchTables(input){
-
-    console.log("Input :",input);
 
     let tables=document.getElementsByClassName("table");
 
@@ -184,10 +194,10 @@ var poppedUpTable=null;
 
 function openPopup(){
 
-    console.log(this);
     poppedUpTable=this;
     let popup=document.getElementById("popup");
     popup.classList.add("open-popup");
+    poppedUpTable.classList.add("active-table");
     displayPopupItems();
     //document.getElementById("body").classList.add("blur-effect");
 }
@@ -196,19 +206,17 @@ function openPopup(){
 function closePopup(){
     let popup=document.getElementById("popup");
     popup.classList.remove("open-popup");
+    poppedUpTable.classList.remove("active-table");
 }
-
 
 function displayPopupItems(){
 
     totalCost();
-    
 
     let table=poppedUpTable.getElementsByTagName("h3")[0].innerHTML;
     let tableNumber=table.match(/(\d+)/);
     tableNumber=tableNumber[0];
 
-    console.log("Table number :"+tableNumber);
     let displayItems="";
 
     document.getElementById("table-number").innerHTML=tableNumber;
@@ -226,16 +234,12 @@ function displayPopupItems(){
                 <td>${sNo}</td>
                 <td>${itemsList[id].name}</td>
                 <td>${itemsList[id].price}</td>
-                <td><input type="number" value=${quantity} onchange="changeQuantity(this,${id},${tableNumber})" min="0"></input></td>
+                <td><input type="number" value=${quantity} onchange="changeQuantity(this,${i},${tableNumber})" min="0"></input></td>
                 <td><span onclick="deleteItemFromPopup(${i},${tableNumber})"><i class='fa fa-trash' ></i></span></td>
             </tr>`
 
             sNo+=1;
-
-            console.log(itemsList[id]);
-    
         }
-
         
     }else{
         displayItems="";
@@ -290,8 +294,6 @@ function deleteItemFromPopup(indexOfMenuItem,tableNumber){
     let items=JSON.parse(sessionStorage.getItem(tableNumber));
 
     items.splice(indexOfMenuItem,1);
-
-    console.log(items);
 
     sessionStorage.setItem(tableNumber,JSON.stringify(items));
 
