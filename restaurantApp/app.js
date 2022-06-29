@@ -16,9 +16,12 @@ var draggableItems=[];
 
 var tablesList=[];
 
-tablesList.push(new tables(0,0));
-tablesList.push(new tables(0,0));
-tablesList.push(new tables(0,0));
+var noOfTables=4
+
+for(let i=0;i<noOfTables;i++){
+    tablesList.push(new tables(0,0));
+}
+
 
 let tabls=""
 
