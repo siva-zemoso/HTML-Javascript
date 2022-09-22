@@ -1,6 +1,7 @@
 
-//function declaration
+//function declaration, jenkins test
 function func1(){
+    console.log("jenkins check");
     console.log("Greetings from func1!!!")
 }
 
